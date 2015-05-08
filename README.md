@@ -70,15 +70,15 @@ protection law.
 
 **`registration_form.php`**:<br /> The registration form proper. You
 might want to translate the error messages in the function
-`validate\_form()`. Change the input form (lines 49-53) according to your requirements.
+`validate_form()`. Change the input form (lines 49-53) according to your requirements.
 
 **`register.php`**:<br />
 Customize the values in the configuration section on top of the file.
 
-**`confirmation\_mail_0.txt`** and **`confirmation\_mail_1.txt`**:<br/>
+**`confirmation_mail_0.txt`** and **`confirmation_mail_1.txt`**:<br/>
 Mailtext send in confirmation mails to registrands. The system
 switches from one to the other upon reaching a threshold that can be
-set in `exec\_machine/graphit.R`.  Modify the text; make use of the
+set in `exec_machine/graphit.R`.  Modify the text; make use of the
 placeholders ("$participant\name", ...).
 
 **`isfull.txt`**<br />
