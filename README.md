@@ -61,7 +61,7 @@ protection law.
 6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
 7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and
     the "download table" link lets you download, well, the table.
-8. Customize the variables that are specific for your event as described  below ([webserver][#webserver) and [exec_machine](#exec_machine)).
+8. Customize the variables that are specific for your event as described  below ([webserver](#webserver) and [exec_machine](#exec_machine)).
 7. Run getregistrations.sh via cron job.
 
 ## Files
