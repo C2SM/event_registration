@@ -1,4 +1,4 @@
-![event registration pic](./event.png)
+![event registration pic](./event1.png)
 # Poor Man's Registration System
 
 This is a very pedestrian collection of scripts to handle
