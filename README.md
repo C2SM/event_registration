@@ -1,3 +1,4 @@
+![event registration pic](./event.png)
 # Poor Man's Registration System
 
 This is a very pedestrian collection of scripts to handle
@@ -59,10 +60,10 @@ protection law.
 4. copy the files in "webserver" into WEBSERVER\_REGISTRATION\_PATH.
 5. copy the files in exec\_machine to exec\_host.
 6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
-7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and
-    the "download table" link lets you download, well, the table.
+7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and the "download table" link lets you download, well, the table.
 8. Customize the variables that are specific for your event as described  below ([webserver](#webserver) and [exec_machine](#exec_machine)).
-7. Run getregistrations.sh via cron job.
+9. Embed the registration form at 	WEBSERVER\_REGISTRATION\_PATH/registration_form.php into your official event-website using an IFrame.
+10. Run getregistrations.sh via cron job.
 
 ## Files
 
