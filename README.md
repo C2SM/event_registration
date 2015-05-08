@@ -58,7 +58,7 @@ protection law.
     (this can be also on a different webserver).
 4. copy the files in "webserver" into WEBSERVER\_REGISTRATION\_PATH.
 5. copy the files in exec\_machine to exec\_host.
-6. Carry out the configurations described below ([webserver][#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
+6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
 7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and
     the "download table" link lets you download, well, the table.
 8. Customize the variables that are specific for your event as described  below ([webserver][#webserver) and [exec_machine](#exec_machine)).
@@ -97,7 +97,7 @@ Filters registration emails into a csv -file. Depending on the contents of your 
 the part that extracts the data (below line 33).
 
 **`graphit.R`**:<br />
-Checks whether participation limit is reach, in
+Checks whether the participation limit is reached, in
 which case it modifies "isfull.txt" on the webserver. Produces a graph
 that shows the current registration data. Customize the variables set
 in the CONFIGURE section at the top of the file.
@@ -105,6 +105,6 @@ in the CONFIGURE section at the top of the file.
 
 ## Feedback
 
-If you use this setup, you will like extend & improve the scripts. I
+If you use this setup, you will likely extend & improve the scripts. I
 would be glad if you could contribute back via email or pull-request. 
 
