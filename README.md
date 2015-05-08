@@ -104,7 +104,6 @@ which case it modifies "isfull.txt" on the webserver. Produces a graph
 that shows the current registration data. Customize the variables set
 in the CONFIGURE section at the top of the file.
 
-
 ## Feedback
 
 If you use this setup, you will likely extend & improve the scripts. I
