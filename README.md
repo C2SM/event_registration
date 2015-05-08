@@ -1,5 +1,6 @@
-![event registration pic](./event1.png)
+
 # Poor Man's Registration System
+<img src="event1.png" alt="event registration pic" style="width:300px;">
 
 This is a very pedestrian collection of scripts to handle
 registrations for events.  It is very simple and very fast to set up.
