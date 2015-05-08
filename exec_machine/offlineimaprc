@@ -1,0 +1,43 @@
+# Configuration template for offlineimap
+# Used for Poor man's event registration system
+# Harald von Waldow <hvw@env.ethz.ch>
+
+## Customize the [DEFAULT] section #############################
+# specify MAILDIR as the directory under which you
+#   want store your event-registration emails.
+# specify MAILSERVER (e.g. "mail.ethz.ch")
+# specify MAIL-USERNAME
+# specify MAIL-PASSWORD
+# specify EVENTFOLDER as the name of the IMAP foldern in
+#   which you keep the registration mails. ("INBOX" also needs to
+#   be specified in the last line, because moving the mails
+#   into EVENTFOLDER might occur at a later point in time.
+#################################################################
+
+[DEFAULT]
+MAILSERVER=
+MAIL-USERNAME=
+MAIL-PASSWORD=
+EVENTFOLDER=
+MAILDIR=
+
+[general]
+accounts = event_account
+ui = Quiet
+
+[Account event_account]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = %(MAILDIR)s
+
+[Repository Remote]
+type = IMAP
+remotehost = %(MAILSERVER)s
+remoteuser = %(MAIL-USERNAME)s
+remotepass = %(MAIL-PASSWORD)s
+ssl = yes
+remoteport = 993
+folderfilter = lambda foldername: foldername in ["INBOX", "%(EVENTFOLDER)s"]
