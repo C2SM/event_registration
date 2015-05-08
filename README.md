@@ -9,7 +9,7 @@ certain thresholds of the number of registrations for sub-events).
 The design is also determined by an institutional CMS that is very
 limiting.  The only requirement for the CMS that presents the
 registration is that you can include iFrames. The Silva CMS used by
-ETH offeres this. The new Adobe AEM CMS to which ETH is transitioning
+ETH offers this. The new Adobe AEM CMS to which ETH is transitioning
 should also offer this, but practical experience is unavailable so far.
 
 We have successfuly used this setup for
@@ -31,7 +31,7 @@ the backup ;).
 + Ability to include iFrames in the institutional CMS
 + A webserver that can serve PHP
 + An IMAP email account
-+ A machine running the system ("exec_host") that has bash, cron, sed, awk, R and OfflineIMAP(http://offlineimap.org/) installed.
++ A machine running the system ("exec_host") that has bash, cron, sed, awk, R and [OfflineIMAP](http://offlineimap.org/) installed.
 + Passwordless ssh login from exec_host to the webserver
 
 ## Alternatives
