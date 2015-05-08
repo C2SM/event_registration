@@ -96,7 +96,7 @@ The main script being run by cron. Customize the various hostnames and paths def
 Filters registration emails into a csv -file. Depending on the contents of your registration form you will have to customize
 the part that extracts the data (below line 33).
 
-**`graphit.R`**:< br />
+**`graphit.R`**:<br />
 Checks whether participation limit is reach, in
 which case it modifies "isfull.txt" on the webserver. Produces a graph
 that shows the current registration data. Customize the variables set
