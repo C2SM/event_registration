@@ -1,6 +1,6 @@
 
 # Poor Man's Registration System
-<img src="event1.png" alt="event registration pic" style="width:300px;">
+<img src="event1.png" alt="event registration pic" style="width:100px;">
 
 This is a very pedestrian collection of scripts to handle
 registrations for events.  It is very simple and very fast to set up.
