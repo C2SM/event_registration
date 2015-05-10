@@ -1,4 +1,3 @@
-
 # Poor Man's Registration System
 <img src="event1.png" alt="event registration pic" height="350px" />
 
@@ -58,7 +57,7 @@ protection law.
 2. make a directory on the webserver ("WEBSERVER\_REGISTRATION\_PATH") that holds the registration form.
 3. make a directory on the webserver ("RESULTPATH") from which info about the state of registrations are presented
     (this can be also on a different webserver).
-4. copy the files in "webserver" into WEBSERVER\_REGISTRATION\_PATH.
+4. copy the files in "webserver/registration\_form" into WEBSERVER\_REGISTRATION\_PATH and the ones in "webserver/result\_html" into WEBSERVER\_RESULT\_PATH.
 5. copy the files in exec\_machine to exec\_host.
 6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
 7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and the "download table" link lets you download, well, the table.
@@ -85,6 +84,11 @@ placeholders ("$participant\name", ...).
 
 **`isfull.txt`**<br />
 Initially contains "0". Is overwritten with "1" once participant limit is reached.
+
+**`kr_registrations.html`**<br />
+Initially the only file in WEBSERVER\_RESULT\_PATH. Just contains html
+to display the plot (`gfx.svg`) and a download link for the table of
+registrations (`registrations.csv`). Modify to make that nicer ;).
 
 ### exec_machine
 
