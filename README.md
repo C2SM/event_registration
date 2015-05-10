@@ -57,7 +57,7 @@ protection law.
 2. make a directory on the webserver ("WEBSERVER\_REGISTRATION\_PATH") that holds the registration form.
 3. make a directory on the webserver ("WEBSERVER\_RESULTPATH") from which info about the state of registrations are presented
     (this can be also on a different webserver).
-4. copy the files in "webserver/registration\_form" into WEBSERVER\_REGISTRATION\_PATH and the onesin "webserver/result\_html" into WEBSERVER\_RESULTPATH.
+4. copy the files in "webserver/registration\_form" into WEBSERVER\_REGISTRATION\_PATH and the one in "webserver/result\_html" into WEBSERVER\_RESULTPATH.
 5. copy the files in exec\_machine to exec\_host.
 6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
 7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at WEBSERVER\_RESULTPATH/kr_registrations.html shows up as expected and the "download table" link lets you download, well, the table.
