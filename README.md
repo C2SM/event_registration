@@ -55,12 +55,12 @@ protection law.
 
 1. clone the git repository
 2. make a directory on the webserver ("WEBSERVER\_REGISTRATION\_PATH") that holds the registration form.
-3. make a directory on the webserver ("RESULTPATH") from which info about the state of registrations are presented
+3. make a directory on the webserver ("WEBSERVER\_RESULTPATH") from which info about the state of registrations are presented
     (this can be also on a different webserver).
-4. copy the files in "webserver/registration\_form" into WEBSERVER\_REGISTRATION\_PATH and the ones in "webserver/result\_html" into WEBSERVER\_RESULT\_PATH.
+4. copy the files in "webserver/registration\_form" into WEBSERVER\_REGISTRATION\_PATH and the onesin "webserver/result\_html" into WEBSERVER\_RESULTPATH.
 5. copy the files in exec\_machine to exec\_host.
 6. Carry out the configurations described below ([webserver](#webserver) and [exec_machine](#exec_machine)), **that refer to hostnames and paths**.
-7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at http://{WEBSERVER}/{RESULTPATH}/kr_registrations.html shows up as expected and the "download table" link lets you download, well, the table.
+7. Do a test-registration, run `getregistrations.sh`, check whether the webpage at WEBSERVER\_RESULTPATH/kr_registrations.html shows up as expected and the "download table" link lets you download, well, the table.
 8. Customize the variables that are specific for your event as described  below ([webserver](#webserver) and [exec_machine](#exec_machine)).
 9. Embed the registration form at 	WEBSERVER\_REGISTRATION\_PATH/registration_form.php into your official event-website using an IFrame.
 10. Run getregistrations.sh via cron job.
