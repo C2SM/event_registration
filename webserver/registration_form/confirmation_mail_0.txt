@@ -2,17 +2,10 @@ Dear $participant_firstname $participant_lastname,
 
 Thank you for registering for the LandMIP meeting. The meeting will take place from October 26 - 28 at ETH Zuerich.
 
-<<<<<<< .merge_file_QeK7T6
-Unfortunately we have reached the maximum number of registrations for day(s) $isfull
 
 Please print this email and use it as your booking confirmation.
 In case of technical problems, please contact $contactPerson.
 
-=======
-Please print this email and use it as your booking confirmation.
-In case of technical problems, please contact $contactPerson.
-
->>>>>>> .merge_file_bwolT6
 
 Your registration details:
 
