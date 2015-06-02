@@ -1,16 +1,25 @@
-Sehr geehrte(r) $participant_name
+Dear $participant_firstname $participant_lastname,
 
-Vielen Dank, dass Sie sich zur ETH Klimarunde "Innovationen fürs Klima - Was braucht es, damit wir handeln können?" am Mittwoch, 5. November 2014 registriert haben.
+Thank you for registering for the LandMIP meeting. The meeting will take place from October 26 - 28 at ETH Zuerich.
 
-Bitte drucken Sie diese Email aus und benutzen Sie sie als Eintrittskarte.
-Bei technischen Schwierigkeiten wenden Sie sich bitte an $contactPerson.
+<<<<<<< .merge_file_QeK7T6
+Unfortunately we have reached the maximum number of registrations for day(s) $isfull
 
-Ihre Angaben:
+Please print this email and use it as your booking confirmation.
+In case of technical problems, please contact $contactPerson.
+
+=======
+Please print this email and use it as your booking confirmation.
+In case of technical problems, please contact $contactPerson.
+
+>>>>>>> .merge_file_bwolT6
+
+Your registration details:
 
 -------------------------------------
 $strMailtext
 -------------------------------------
 
-Mit freundlichen Grüssen,
-Das C2SM-Team
+Best regards,
 
+LandMIP meeting administration
