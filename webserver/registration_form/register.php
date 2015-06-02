@@ -7,28 +7,28 @@
 ### configuration
 
 # Address to send registration mails to
-$strEmpfaenger = "klimarunde2014@env.ethz.ch";
+$strReceiver = "landclim-event@env.ethz.ch";
 
 # Content of From: field in header of confirmation mail
-$strFrom       = "\"[Klimarunde 2014 Registrierung]\" <$strEmpfaenger>";
+$strFrom = "\"[LandMIP 2015 Registration]\" <$strReceiver>";
 
 # Content of Subject: field in header of confirmation mail
-$strSubject    = '[Klimarunde 2014 Registrierung]';
+$strSubject = '[LandMIP 2015 Registration]';
 
 # Page being loaded after registration has completed.
 # Should say something like "Thanks for registering for event XY"
-$strReturnhtml = 'http://www.c2sm.ethz.ch';
+$strReturnhtml = 'thankyou.html';
 
 # Delimiter between field name and value
 $strDelimiter  = ":  ";
 
 # Contact person named in the confirmation mail
-$contactPerson = 'The Manger <mgmt@great.institution.org>';
+$contactPerson = 'Barbara Aellig <barbara.aellig@env.ethz.ch>';
 
 # Also configure the text of the confirmation mail(s):
 # "confirmation_mail_0.txt" and "confirmation_mail_1.txt"
 # in this directory. Which of these mails is send depends
-# on the content of the file "isfull.txt" in this directory ("0" or "1").
+# on the content of the file "isfull?.txt" in this directory ("0" or "1").
 
 ### end of configuration
 
@@ -48,8 +48,17 @@ if($_POST) {
       if ($strName == "Email") {
         $participant_email=$value;
       }
-      elseif($strName == "Name") {
-        $participant_name=$value;
+      elseif($strName == "FirstName") {
+        $participant_firstname=$value;
+      }
+      elseif($strName == "LastName") {
+        $participant_lastname=$value;
+      }
+      elseif($strName == "Affiliation") {
+        $participant_affiliation=$value;
+      }
+      elseif($strName == "Remarks") {
+        $participant_remarks=$value;
       }
       $strMailtext .= $strName.$strDelimiter.$value."\n";
     }
@@ -59,30 +68,72 @@ if($_POST) {
     $strMailtext = stripslashes($strMailtext);
   }
 
-  mail($strEmpfaenger, $strSubject, $strMailtext, "From: ".$strFrom, "Return-Path: ".$strEmpfaenger)
-  or die("Die Mail konnte nicht versendet werden.");
+  mail($strReceiver, $strSubject, $strMailtext, "From: ".$strFrom, "Return-Path: ".$strReceiver)
+  or die("The e-mail could not be sent.");
 
-header("Location: $strReturnhtml");
+  header("Location: $strReturnhtml");
 
-### creates and sends the confirmation mail
+  ### creates and sends the confirmation mail
 
-## switch between two versions of the body of the confirmationmail,
-## depending on contents of the file "isfull.txt".
-## Here this can take two values, 0 and 1.
+  ### switch between two versions of the body of the confirmationmail,
+  ### depending on contents of the file "isfull?.txt".
+  ### Here this can take two values, 0 and 1.
 
-$isfullhandle = fopen("isfull.txt","r");
-$isfull=intval(fgets($isfullhandle));
-fclose($isfullhandle);
-if($isfull == 0) {
+  $isfullhandle1 = fopen("isfull1.txt","r");
+  $isfullhandle2 = fopen("isfull2.txt","r");
+  $isfullhandle3 = fopen("isfull3.txt","r");
+  $isfull1=intval(fgets($isfullhandle1));
+  $isfull2=intval(fgets($isfullhandle2));
+  $isfull3=intval(fgets($isfullhandle3));
+  fclose($isfullhandle1);
+  fclose($isfullhandle2);
+  fclose($isfullhandle3);
+
+  $isfull = "";
   $confirmtext=file_get_contents('confirmation_mail_0.txt');
-} else {
-  $confirmtext=file_get_contents('confirmation_mail_1.txt');
-}
-$confirmtext=strtr($confirmtext, array('$participant_name' => $participant_name,
+  if($isfull1 == 0 && $isfull2 == 0 && $isfull3 == 0) {
+    $confirmtext=file_get_contents('confirmation_mail_0.txt');
+  } else {
+    $confirmtext=file_get_contents('confirmation_mail_1.txt');
+    if($isfull1 == 1) {
+      $isfull = $isfull + "1";
+      if($isfull2 == 1) {
+      	if($isfull3 == 1) {
+  	  $isfull = $isfull + ", 2 and 3.";
+  	} else {
+  	  $isfull = $isfull + " and 2. Please contact $contactPerson to indicate if you still wish to attend the meeting at day 3.";
+      	}
+      } else {
+      	if($isfull3 == 1) {
+          $isfull = $isfull + " and 3. Please contact $contactPerson to indicate if you still wish to attend the meeting at day 2.";
+  	} else {
+          $isfull = $isfull + ". Please contact $contactPerson to indicate if you still wish to attend the meeting at days 2 and/or 3.";
+  	}
+      }
+    }
+    elseif($isfull2 == 1) {
+      $isfull = $isfull + "2";
+      if($isfull3 == 1) {
+        $isfull = $isfull + " and 3. Please contact $contactPerson to indicate if you still wish to attend the meeting at day 1.";
+      } else {
+        $isfull = $isfull + ". Please contact $contactPerson to indicate if you still wish to attend the meeting at days 1 and/or 3.";
+      }
+    }
+    elseif($isfull3 == 1) {
+      $isfull = $isfull + "3. Please contact $contactPerson to indicate if you still wish to attend the meeting at days 1 and/or 2.";
+    }
+  }
+
+  $confirmtext=strtr($confirmtext, array('$participant_firstname' => $participant_firstname,
+  				       '$participant_lastname' => $participant_lastname,
+				       '$participant_affiliation' => $participant_affiliation,
+				       '$participant_remarks' => $participant_remarks,
   				       '$strMailtext' => $strMailtext,
-                                       '$contactPerson' => $contactPerson));
-$res=mail($participant_email, $strSubject, $confirmtext, "From: ".$strFrom)
-    or die("Die Mail konnte nicht versendet werden.");
-exit;
+                                       '$contactPerson' => $contactPerson,
+  				       '$isfull' => $isfull,));
+  $res=mail($participant_email, $strSubject, $confirmtext, "From: ".$strFrom)
+  or die("The e-mail could not be sent!");
+  exit;
 }
+
 ?>
