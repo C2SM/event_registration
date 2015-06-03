@@ -23,11 +23,13 @@ MAILDIR=
 
 [general]
 accounts = event_account
-ui = Quiet
+#ui = Quiet
+ui = machineui
 
 [Account event_account]
 localrepository = Local
 remoterepository = Remote
+no-delete-local = no
 
 [Repository Local]
 type = Maildir
@@ -35,9 +37,11 @@ localfolders = %(MAILDIR)s
 
 [Repository Remote]
 type = IMAP
+
 remotehost = %(MAILSERVER)s
 remoteuser = %(MAIL-USERNAME)s
 remotepass = %(MAIL-PASSWORD)s
 ssl = yes
+cert_fingerprint=b8e69443b92a4134c0becd1bdf7198f8b79cc1fb
 remoteport = 993
-folderfilter = lambda foldername: foldername in ["INBOX", "%(EVENTFOLDER)s"]
+folderfilter = lambda foldername: foldername in ["Inbox", "%(EVENTFOLDER)s"]
