@@ -53,6 +53,11 @@ protection law.
 
 ## Setup
 
+**Note:** The "landclim" branch contains a modification for a
+  different event. Have a look to see how the registration form, the
+  filtering script, the response-emails, and thresholds for different
+  participant limits can be accomodated to differing requirements.
+
 1. clone the git repository
 2. make a directory on the webserver ("WEBSERVER\_REGISTRATION\_PATH") that holds the registration form.
 3. make a directory on the webserver ("WEBSERVER\_RESULTPATH") from which info about the state of registrations are presented
