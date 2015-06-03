@@ -14,7 +14,7 @@ WEBSERVER_HOST <- "hvwaldow@data.c2sm.ethz.ch"
 ## Path to registration directory on webserver
 WEBSERVER_REGISTRATION_PATH <- "/data/lab.c2sm.ethz.ch/htdocs/website/registration_inline/klimarunde2014"
 
-# Host on which the result-file is to be written (e.g. webserver, for downloading results)
+# Host on which the result-file is to be written (e.g. webserver, for downloading results, or an empty string if the results-file is to be written to a directory mounted on exec_host)
 # Passwordless ssh-login must be configured
 RESULTHOST='hvwaldow@data.c2sm.ethz.ch'
 
